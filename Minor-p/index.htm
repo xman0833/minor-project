@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Food Delivery System</title>
+</head>
+
+<body>
+    <input type="checkbox" id="cart">
+    <label for="cart" class="label-cart" title="View Cart"><span class="fas fa-shopping-cart"></span></label>
+
+    <h3 class="logo">Tummy Joy</h3>
+
+    <div class="sidebar">
+        <div class="sidebar-menu" data-category="search">
+            <span class="fas fa-search"></span>
+            <a href="#">Search</a>
+        </div>
+        <div class="sidebar-menu" data-category="all">
+            <span class="fas fa-home"></span>
+            <a href="#">Home</a>
+        </div>
+        <div class="sidebar-menu" data-category="favs">
+            <span class="fas fa-heart"></span>
+            <a href="#">Favs</a>
+        </div>
+        <div class="sidebar-menu">
+            <span class="fas fa-user"></span>
+            <a href="#">Profile</a>
+        </div>
+        <div class="sidebar-menu">
+            <span class="fas fa-sliders-h"></span>
+            <a href="#">Setting</a>
+        </div>
+    </div>
+
+
+    <div class="dashboard">
+        <div class="dashboard-banner">
+            <div class="banner-promo">
+                <h1><span>50% OFF</span><br>
+                    Tasty Food <br> On Your Hand </h1>
+            </div>
+        </div>
+        <h3 class="dashboard-title">Recommend Food For You</h3>
+        <div class="dashboard-menu">
+            <a href="#" data-category="favorites">Favorites</a>
+            <a href="#" data-category="best-seller">Best Seller</a>
+            <a href="#" data-category="near-me">Near Me</a>
+            <a href="#" data-category="promotion">Promotion</a>
+            <a href="#" data-category="top-rated">Top Rated</a>
+            <a href="#" data-category="all">All</a>
+        </div>
+        <div class="dashboard-content">
+        </div>
+    </div>
+
+    <div class="dashboard-order">
+        <h3>Order Menu</h3>
+        <div class="order-address">
+            <p>Address Delivery</p>
+            <h4>221 B Baker Street, London</h4>
+        </div>
+        <div class="order-time">
+            <span class="fas fa-clock"></span> 30 mins <span class="fas fa-map-marker-alt"></span>2 km
+        </div>
+        <div class="Order-wrapper" id="cart-items">
+        </div>
+
+        <hr class="divider">
+        <div class="order-total">
+            <p>Subtotal <span id="subtotal">$0</span></p>
+            <p>Tax (10%) <span id="tax">$0</span></p>
+            <p>Delivery Fee <span id="delivery-fee">$0</span></p>
+
+            <div class="order-promo">
+                <input class="input-promo" type="text" placeholder="Apply Voucher">
+                <button class="button-promo">Find Promo</button>
+            </div>
+            <hr class="divider">
+            <p>Total <span id="total">$0</span></p>
+        </div>
+        <button class="checkout" id="checkout-btn">
+            Checkout
+        </button>
+    </div>
+
+    <div id="quick-view-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-details">
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn-confirm">&times;</span>
+            <h3>Order Summary</h3>
+            <div id="confirmation-details">
+            </div>
+            <button id="confirm-order-btn">Confirm Order</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

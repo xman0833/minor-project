@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tummy Joy - Login & Signup</title>
+<style>
+  * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background: url(/Minor-p/images/login.jpg);
+    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .container {
+    background: white;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    color: #ff6f61;
+  }
+
+  /* Switch Buttons */
+  .switch-btns {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  .switch-btns button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s;
+  }
+
+  .switch-btns button:hover {
+    background-color: rgba(255, 111, 97, 0.2);
+  }
+
+  /* Forms */
+  form {
+    display: none;
+    flex-direction: column;
+  }
+
+  form.active {
+    display: flex;
+  }
+
+  input {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+
+  button.submit {
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 14px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+  }
+
+  button.submit:hover {
+    background-color: #ff3b2e;
+  }
+
+  /* Additional styles */
+  .message {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: green;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2 id="form-title">Login to Tummy Joy</h2>
+  <div class="switch-btns">
+    <button id="loginBtn">Login</button>
+    <button id="signupBtn">Sign Up</button>
+  </div>
+  
+  <!-- Login Form -->
+  <form id="loginForm" class="active">
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    <button class="submit" type="submit">Login</button>
+    <div class="message" id="loginMessage"></div>
+  </form>
+  
+  <!-- Signup Form -->
+  <form id="signupForm">
+    <input type="text" id="signupName" placeholder="Full Name" required />
+    <input type="email" id="signupEmail" placeholder="Email" required />
+    <input type="password" id="signupPassword" placeholder="Password" required />
+    <button class="submit" type="submit">Sign Up</button>
+    <div class="message" id="signupMessage"></div>
+  </form>
+</div>
+
+  <script>
+    // Get elements
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const formTitle = document.getElementById('form-title');
+
+    // Switch to Login
+    loginBtn.addEventListener('click', () => {
+      loginForm.classList.add('active');
+      signupForm.classList.remove('active');
+      formTitle.textContent = 'Login to Tummy Joy';
+      clearMessages();
+    });
+
+    // Switch to Sign Up
+    signupBtn.addEventListener('click', () => {
+      signupForm.classList.add('active');
+      loginForm.classList.remove('active');
+      formTitle.textContent = 'Sign Up for Tummy Joy';
+      clearMessages();
+    });
+
+    // Clear messages
+    function clearMessages() {
+      document.getElementById('loginMessage').textContent = '';
+      document.getElementById('signupMessage').textContent = '';
+    }
+
+    // Handle Login
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      if(email && password) {
+        // Redirect to home page after successful login
+        window.location.href = '/Minor-p/index.html';
+      } else {
+        document.getElementById('loginMessage').style.color='red';
+        document.getElementById('loginMessage').textContent='Please enter email and password.';
+      }
+    });
+
+    // Handle Sign Up
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value.trim();
+
+      if(name && email && password) {
+        // Redirect to home page after successful signup
+        window.location.href = '/Minor-p/index.html';
+      } else {
+        document.getElementById('signupMessage').style.color='red';
+        document.getElementById('signupMessage').textContent='Please fill all fields.';
+      }
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+
+
